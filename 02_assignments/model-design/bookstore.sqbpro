@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/apple/DSI/sql/model-design/bookstore.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2121"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,4:mainBook"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">--Question 2 employee shifts
+CREATE TABLE &quot;EmployeeShift&quot; (
+    &quot;EmployeeShiftID&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;EmployeeID&quot; INTEGER NOT NULL,
+    &quot;ShiftType&quot; TEXT NOT NULL,
+    &quot;StartTime&quot; TEXT NOT NULL,
+    &quot;EndTime&quot; TEXT NOT NULL,
+    FOREIGN KEY (&quot;EmployeeID&quot;) REFERENCES &quot;Employee&quot; (&quot;EmployeeID&quot;)
+);
+
+
+--Q3 CUSTOMER_ADDRESS 
+--Type 1
+CREATE TABLE &quot;CustomerAddresses_Type1&quot; (
+    &quot;CustomerID&quot; INTEGER NOT NULL,
+    &quot;AddressID&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;StreetAddress&quot; TEXT NOT NULL,
+    &quot;City&quot; TEXT NOT NULL,
+    &quot;State&quot; TEXT NOT NULL,
+    &quot;PostalCode&quot; TEXT NOT NULL,
+    FOREIGN KEY (&quot;CustomerID&quot;) REFERENCES &quot;Customer&quot; (&quot;CustomerID&quot;)
+);
+--  CUSTOMER_ADDRESS Type 2
+CREATE TABLE &quot;CustomerAddresses_Type2&quot; (
+    &quot;CustomerAddressID&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;CustomerID&quot; INTEGER NOT NULL,
+    &quot;StreetAddress&quot; TEXT NOT NULL,
+    &quot;City&quot; TEXT NOT NULL,
+    &quot;State&quot; TEXT NOT NULL,
+    &quot;PostalCode&quot; TEXT NOT NULL,
+    &quot;StartDate&quot; TEXT NOT NULL,
+    &quot;EndDate&quot; TEXT,
+    &quot;IsCurrent&quot; BOOLEAN NOT NULL,
+    FOREIGN KEY (&quot;CustomerID&quot;) REFERENCES &quot;Customer&quot; (&quot;CustomerID&quot;)
+);
+
+--Question 4: 
+--Two differences between my EDR</sql><current_tab id="0"/></tab_sql></sqlb_project>
